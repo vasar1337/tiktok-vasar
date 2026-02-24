@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /vasar
+
+    # Redirect all requests to index.php except existing files/directories
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
+
+# Disable directory listing
+Options -Indexes
+
+# Set default charset
+AddDefaultCharset UTF-8
